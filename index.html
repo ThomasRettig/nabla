@@ -5,8 +5,28 @@
       <title>Typearture's Nabla</title>
       <link rel="stylesheet" href="styles.css">
       <script src="chromacheck.min.js" async></script>
+      <style>
+        /* inline to avoid flash of unwanted content */
+        .colrv1 {
+          display: flex;
+          justify-content: center;
+          background-color: #ff8723;
+        }
+
+        p[role="alert"] {
+          margin: 20px auto 20px;
+          text-align: center;
+        }
+
+        .chromacheck-colrv1 .colrv1 {
+          display: none; /* if COLR v1 is supported, hide the alert box */
+        }
+      </style>
    </head>
    <body>
+      <aside class="colrv1">
+        <p role="alert">COLR v1 fonts are <strong>not supported</strong> in your browser. Please refer to the <a href="https://caniuse.com/colr-v1" target="_blank">browser compatability table</a> for more information.</p>
+      </aside>
       <main class="page">
         <header>
           <h1>Nabla Demo</h1>
@@ -43,13 +63,13 @@ rsßtţuvwxyz
           this.style.height = `${(this.scrollHeight)}px`;
         }
 
-         function depthAxisHandler(value) {
-           element.style.fontVariationSettings = `'DPTH' ${value}`;
-         }
+        function depthAxisHandler(value) {
+          element.style.fontVariationSettings = `'DPTH' ${value}`;
+        }
          
-         function fontSizeHandler(value) {
-           element.style.fontSize = `${value}px`;
-         }
+        function fontSizeHandler(value) {
+          element.style.fontSize = `${value}px`;
+        }
       </script>
    </body>
 </html>

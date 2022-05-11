@@ -28,6 +28,14 @@ textarea {
   margin: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 1.5px;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: #894b01;
+}
+
 h1 {
   margin-bottom: 0;
 }
@@ -63,8 +71,8 @@ header, .settings {
 .slider {
   -webkit-appearance: none;
   appearance: none;
-  background: #ff8723;
-  width: 50%;
+  background-color: #ff8723;
+  min-width: 50vw;
   height: 3px;
   outline: none;
   margin-top: 10px;
@@ -73,12 +81,21 @@ header, .settings {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: #ff8723;
+  background-color: #ff8723;
   border-radius: 50%;
   cursor: ew-resize;
   width: 15px;
   height: 15px;
   transition: 0.1s;
+}
+
+::-moz-range-thumb {
+  background-color: #ff8723;
+  border-radius: 50%;
+  cursor: ew-resize;
+  border: none;
+  width: 15px;
+  height: 15px;
 }
 
 .slider::-webkit-slider-thumb:hover {
