@@ -2,30 +2,48 @@
 <html>
    <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
       <title>Typearture Nabla Font Specimen</title>
       <link rel="stylesheet" href="styles.css">
-      <script src="chromacheck.min.js" async></script>
+      <script src="chromacheck.min.js"></script>
       <style>
         /* inline to avoid flash of unwanted content */
+
         .colrv1 {
           display: flex;
           justify-content: center;
+        }
+
+        .colrv1:nth-child(1) {
           background-color: #ff8723;
         }
 
-        p[role="alert"] {
-          margin: 20px auto 20px;
+        .colrv1:nth-child(2) {
+          background-color: #86f05e;
+          display: none; /* hide by default */
+          justify-content: space-between;
+          padding: 0 1.5em;
+        }
+
+        p[role="note"] {
           text-align: center;
         }
 
-        .chromacheck-colrv1 .colrv1 {
+        .chromacheck-colrv1 .colrv1:nth-child(1) {
           display: none; /* if COLR v1 is supported, hide the alert box */
+        }
+
+        .chromacheck-colrv1 .colrv1:nth-child(2) {
+          display: flex;
         }
       </style>
    </head>
    <body>
       <aside class="colrv1">
-        <p role="alert">COLR v1 fonts are <strong>not supported</strong> in your browser. Please refer to the <a href="https://caniuse.com/colr-v1" target="_blank">browser compatability table</a> for more information.</p>
+        <p role="note" class="unsupported">COLR v1 fonts are <strong>not supported</strong> in your browser. Please refer to the <a href="https://caniuse.com/colr-v1" target="_blank">browser compatability table</a> for more information.</p>
+      </aside>
+      <aside class="colrv1">
+        <p role="note" class="supported" id="note">COLR v1 fonts are supported on your browser! 🥳</p><button id="close" aria-controls="note" aria-label="Dismiss info box">Dismiss</button>
       </aside>
       <main class="page">
         <header>
@@ -52,6 +70,12 @@ rsßtţuvwxyz
       <script>
         const element = document.querySelector(".color-text");
         const tx = document.getElementsByTagName("textarea");
+
+        function close() {
+          document.querySelector(".colrv1:nth-child(2)").style.display = "none";
+        }
+
+        document.getElementById("close").addEventListener("click", close);
 
         for (let i = 0; i < tx.length; i++) {
           tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
