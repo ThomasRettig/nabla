@@ -130,6 +130,3 @@ dmypy.json
 
 # macOS Finder
 .DS_Store
-
-# final fonts dir
-fonts
