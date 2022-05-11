@@ -29,7 +29,9 @@ rsßtţuvwxyz
 {«¢£°™€₹¥»}</textarea>
       </main>
       <script>
+        const element = document.querySelector(".color-text");
         const tx = document.getElementsByTagName("textarea");
+
         for (let i = 0; i < tx.length; i++) {
           tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
           tx[i].addEventListener("input", OnInput, false);
@@ -37,16 +39,14 @@ rsßtţuvwxyz
 
         function OnInput() {
           this.style.height = "auto";
-          this.style.height = (this.scrollHeight) + "px";
+          this.style.height = `${(this.scrollHeight)}px`;
         }
 
          function depthAxisHandler(value) {
-           const element = document.querySelector(".color-text");
            element.style.fontVariationSettings = `'DPTH' ${value}`;
          }
          
          function fontSizeHandler(value) {
-           const element = document.querySelector(".color-text");
            element.style.fontSize = `${value}px`;
          }
       </script>
