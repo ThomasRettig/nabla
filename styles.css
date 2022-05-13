@@ -4,9 +4,18 @@
   src: url("./fonts/Nabla.ttf") format("truetype");
 }
 
+:root {
+  --red: hsla(10, 92%, 57%, 1);
+}
+
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+::selection {
+  color: white;
+  background-color: var(--red);
 }
 
 :not(.color-text) {
@@ -26,7 +35,7 @@ main {
 }
 
 main, textarea {
-  background-color: #273a70;
+  background-color: hsla(224, 48%, 30%, 1);
 }
 
 button {
@@ -34,15 +43,21 @@ button {
   border: none;
   cursor: pointer;
   font: inherit;
+  font-weight: bold;
   padding: 0;
+}
+
+button:hover {
+  opacity: 0.7;
 }
 
 textarea {
   border: none;
-  caret-color: #f64f2c;
+  caret-color: var(--red);
   outline: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 30px;
   resize: none;
 }
 
@@ -51,7 +66,7 @@ a {
   text-decoration: underline;
   text-underline-offset: 1.5px;
   text-decoration-thickness: 1.5px;
-  text-decoration-color: #894b01;
+  text-decoration-color: hsla(33, 99%, 27%, 1);
 }
 
 h1, h2, label {
@@ -67,7 +82,7 @@ h2, label {
 }
 
 h2 {
-  color: #d5dbed;
+  color: hsla(225, 40%, 88%, 1);
   font-size: 1.25em;
   margin: 0;
 }
@@ -94,11 +109,26 @@ header, .settings {
 .slider {
   -webkit-appearance: none;
   appearance: none;
-  background-color: #6d7ca7;
+  background-color: hsla(224, 25%, 54%, 1);
   min-width: 57vw;
   height: 3px;
-  outline: none;
   margin-top: 10px;
+}
+
+.slider::before, .slider::after {
+  color: hsla(226, 32%, 80%, 1);
+  font-family: "Consolas", monospace;
+  margin-top: 5vh;
+  position: relative;
+  top: 10px;
+}
+
+.slider::before {
+  content: attr(min);
+}
+
+.slider::after {
+  content: attr(max);
 }
 
 .slider::-webkit-slider-thumb {
